@@ -66,13 +66,11 @@ Key responsibilities of this dashboard include:
 
 | Login Screen | Dashboard Home | Security Alerts |
 |:---:|:---:|:---:|
-| _(login.png)_ | _(dashboard_home.png)_ | _(alerts.png)_ |
+| ![Login Screen](screenshots/login.png) | ![Dashboard Home](screenshots/dashboard_home.png) | ![Security Alerts](screenshots/alerts.png) |
 
-| User Management | Admin Management | System Logs |
-|:---:|:---:|:---:|
-| _(user_management.png)_ | _(admin_management.png)_ | _(logs.png)_ |
-
-> To add real screenshots: create a `screenshots/` directory at the root, save PNG captures there, and replace the placeholder cells above with `![Label](screenshots/filename.png)` Markdown image tags.
+| User Management |
+|:---:|
+| ![User Management](screenshots/user_management.png) |
 
 ---
 
@@ -127,24 +125,24 @@ The project follows a **feature-first layered architecture**. Each feature encap
 
 ```mermaid
 flowchart TD
-    A([App Start]) --> B[Load .env\nInit Firebase]
-    B --> C[/login route\nAdminLoginScreen]
+    A([App Start]) --> B["Load .env<br>Init Firebase"]
+    B --> C["/login route<br>AdminLoginScreen"]
 
-    C -->|Invalid credentials\nor non-admin role| C
-    C -->|mustResetPassword = true| D[/force-reset\nForcePasswordResetScreen]
-    C -->|Approved admin\nnormal login| E[/dashboard\nDashboardShell]
+    C -->|"Invalid credentials / non-admin role"| C
+    C -->|"mustResetPassword = true"| D["/force-reset<br>ForcePasswordResetScreen"]
+    C -->|"Approved admin — normal login"| E["/dashboard<br>DashboardShell"]
 
-    D -->|Password updated\nFirestore flag cleared| E
+    D -->|"Password updated — Firestore flag cleared"| E
 
     E --> F{Sidebar Selection}
 
-    F -->|0| G[Dashboard Home\nLive user counts]
-    F -->|1| H[User Management\nApprove · Reject · Suspend · Notify]
-    F -->|2| I[Groups Management\nCreate · Edit · Members · Officers]
-    F -->|3| J[Security Alerts\nSOS · Threat · Medical · Suspicious]
-    F -->|4| K[Admin Management\nCreate · Suspend · Permissions]
-    F -->|5| L[System Logs\nAdmin · User · Alert · System]
-    F -->|6| M[Notifications Center\nBroadcast · History]
+    F -->|0| G["Dashboard Home<br>Live user counts"]
+    F -->|1| H["User Management<br>Approve · Reject · Suspend · Notify"]
+    F -->|2| I["Groups Management<br>Create · Edit · Members · Officers"]
+    F -->|3| J["Security Alerts<br>SOS · Threat · Medical · Suspicious"]
+    F -->|4| K["Admin Management<br>Create · Suspend · Permissions"]
+    F -->|5| L["System Logs<br>Admin · User · Alert · System"]
+    F -->|6| M["Notifications Center<br>Broadcast · History"]
     F -->|Logout| C
 ```
 
