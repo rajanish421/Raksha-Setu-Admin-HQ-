@@ -64,15 +64,15 @@ Key responsibilities of this dashboard include:
 
 ## 📸 Screenshots
 
-> _Add screenshots to a `/screenshots` directory and link them below._
-
 | Login Screen | Dashboard Home | Security Alerts |
 |:---:|:---:|:---:|
-| ![Login](screenshots/login.png) | ![Dashboard](screenshots/dashboard_home.png) | ![Alerts](screenshots/alerts.png) |
+| _(login.png)_ | _(dashboard_home.png)_ | _(alerts.png)_ |
 
 | User Management | Admin Management | System Logs |
 |:---:|:---:|:---:|
-| ![Users](screenshots/user_management.png) | ![Admins](screenshots/admin_management.png) | ![Logs](screenshots/logs.png) |
+| _(user_management.png)_ | _(admin_management.png)_ | _(logs.png)_ |
+
+> To add real screenshots: create a `screenshots/` directory at the root, save PNG captures there, and replace the placeholder cells above with `![Label](screenshots/filename.png)` Markdown image tags.
 
 ---
 
@@ -356,6 +356,8 @@ FIREBASE_SA_UNIVERSE_DOMAIN=googleapis.com
 ```
 
 > ⚠️ **Security**: Never commit your `.env` file. It is already listed in `.gitignore`.
+
+> 📝 **Private key format**: In the `.env` file the private key must be stored as a **single line** with literal `\n` sequences where newlines appear (i.e. `-----BEGIN PRIVATE KEY-----\nMII...\n-----END PRIVATE KEY-----\n`). The app calls `.replaceAll(r'\\n', '\n')` at runtime to restore the real newlines before using the key. Do **not** use actual multi-line values in the `.env` file.
 
 ### 3. Install dependencies
 
